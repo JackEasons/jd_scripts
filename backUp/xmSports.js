@@ -1,8 +1,8 @@
 /*
- * @Author: lxk0301 https://github.com/lxk0301 
- * @Date: 2020-11-01 13:43:28 
- * @Last Modified by:   lxk0301 
- * @Last Modified time: 2020-11-03 13:43:28 
+ * @Author: JackEasons https://github.com/JackEasons
+ * @Date: 2020-11-01 13:43:28
+ * @Last Modified by:   JackEasons
+ * @Last Modified time: 2020-11-03 13:43:28
  */
 /*
 小米运动修改微信支付宝运动步数
@@ -14,19 +14,19 @@ APP Store下载小米运动APP
 hostname = account.huami.com
 Surge
 [Script]
-小米运动 = type=cron,cronexp="15 17 * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/backUp/xmSports.js
-小米运动获取Token = type=http-response,pattern=^https:\/\/account\.huami\.com\/v2\/client\/login, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/backUp/xmSports.js
+小米运动 = type=cron,cronexp="15 17 * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/JackEasons/jd_scripts/master/backUp/xmSports.js
+小米运动获取Token = type=http-response,pattern=^https:\/\/account\.huami\.com\/v2\/client\/login, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/JackEasons/jd_scripts/master/backUp/xmSports.js
 圈X
 [task_local]
 # 小米运动
-15 17 * * * https://raw.githubusercontent.com/lxk0301/jd_scripts/master/backUp/xmSports.js, tag=小米运动, enabled=true
+15 17 * * * https://raw.githubusercontent.com/JackEasons/jd_scripts/master/backUp/xmSports.js, tag=小米运动, enabled=true
 [rewrite_local]
 # 小米运动获取Token
-^https:\/\/account\.huami\.com\/v2\/client\/login url script-response-body https://raw.githubusercontent.com/lxk0301/jd_scripts/master/backUp/xmSports.js
+^https:\/\/account\.huami\.com\/v2\/client\/login url script-response-body https://raw.githubusercontent.com/JackEasons/jd_scripts/master/backUp/xmSports.js
 Loon
 [Script]
-cron "15 17 * * *" script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/backUp/xmSports.js, tag=小米运动
-http-response ^https:\/\/account\.huami\.com\/v2\/client\/login script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/backUp/xmSports.js, requires-body=true, timeout=10, tag=小米运动获取Token
+cron "15 17 * * *" script-path=https://raw.githubusercontent.com/JackEasons/jd_scripts/master/backUp/xmSports.js, tag=小米运动
+http-response ^https:\/\/account\.huami\.com\/v2\/client\/login script-path=https://raw.githubusercontent.com/JackEasons/jd_scripts/master/backUp/xmSports.js, requires-body=true, timeout=10, tag=小米运动获取Token
  */
 
 const $ = new Env('小米运动');

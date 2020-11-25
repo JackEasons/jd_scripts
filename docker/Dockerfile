@@ -11,7 +11,7 @@ RUN git clone https://github.com/JackEasons/jd_scripts /scripts \
         && cd /scripts \
         && mkdir logs \
         && npm install \
-        && cd ~ \
+        && cd /tmp \
         && npm install request
 
 ENV CRONTAB_LIST_FILE crontab_list_ts.sh
