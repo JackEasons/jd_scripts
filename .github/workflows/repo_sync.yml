@@ -26,7 +26,8 @@ jobs:
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
-          source_repo: "https://github.com/JackEasons/jd_scripts.git"
+          source_repo: "https://github.com/XiaowuMaple
+/jd_scripts.git"
           source_branch: "master"
           destination_branch: "master"
           github_token: ${{ secrets.PAT }}
@@ -36,7 +37,7 @@ jobs:
         if: env.dst_key
         with:
           src: github/JackEasons
-          dst: gitee/JackEasons
+          dst: gitee/XiaowuMaple
           static_list: "jd_scripts"
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
