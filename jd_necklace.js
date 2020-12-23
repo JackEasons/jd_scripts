@@ -1,8 +1,8 @@
 /*
- * @Author: JackEasons https://github.com/JackEasons
- * @Date: 2020-11-20 11:42:03
- * @Last Modified by: JackEasons
- * @Last Modified time: 2020-11-23 12:27:14
+ * @Author: lxk0301 https://github.com/lxk0301 
+ * @Date: 2020-11-20 11:42:03 
+ * @Last Modified by: lxk0301
+ * @Last Modified time: 2020-12-12 12:27:14
  */
 /*
 点点券，可以兑换无门槛红包（1元，5元，10元，100元，部分红包需抢购）
@@ -13,24 +13,25 @@ APP活动入口：“最新版本京东APP >领券中心/券后9.9>领点点券�
 ===============Quantumultx===============
 [task_local]
 #点点券
-10 0,20 * * * https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_necklace.js, tag=点点券, enabled=true
+10 0,20 * * * https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_necklace.js, tag=点点券, enabled=true
 
 ================Loon==============
 [Script]
-cron "10 0,20 * * *" script-path=https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_necklace.js,tag=点点券
+cron "10 0,20 * * *" script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_necklace.js,tag=点点券
 
 ===============Surge=================
-点点券 = type=cron,cronexp="10 0,20 * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_necklace.js
+点点券 = type=cron,cronexp="10 0,20 * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_necklace.js
 
 ============小火箭=========
-点点券 = type=cron,script-path=https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_necklace.js, cronexpr="10 0,20 * * *", timeout=200, enable=true
+点点券 = type=cron,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_necklace.js, cronexpr="10 0,20 * * *", timeout=200, enable=true
  */
 const $ = new Env('点点券');
 
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-
+const openUrl = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://h5.m.jd.com/babelDiy/Zeus/41Lkp7DumXYCFmPYtU3LTcnTTXTX/index.html%22%20%7D`
+let message = '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '';
 if ($.isNode()) {
@@ -39,7 +40,12 @@ if ($.isNode()) {
   })
   if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
 } else {
-  cookiesArr.push(...[$.getdata('CookieJD'), $.getdata('CookieJD2')]);
+  let cookiesData = $.getdata('CookiesJD') || "[]";
+  cookiesData = jsonParse(cookiesData);
+  cookiesArr = cookiesData.map(item => item.cookie);
+  cookiesArr.reverse();
+  cookiesArr.push(...[$.getdata('CookieJD2'), $.getdata('CookieJD')]);
+  cookiesArr.reverse();
 }
 
 const JD_API_HOST = 'https://api.m.jd.com/api';
@@ -55,6 +61,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
       $.index = i + 1;
       $.isLogin = true;
       $.nickName = '';
+      message = '';
       await TotalBean();
       console.log(`\n开始【京东账号${$.index}】${$.nickName || $.UserName}\n`);
       if (!$.isLogin) {
@@ -67,7 +74,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
         }
         continue
       }
-      await JD818();
+      await jd_necklace();
     }
   }
 })()
@@ -77,18 +84,24 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
     .finally(() => {
       $.done();
     })
-async function JD818() {
+async function jd_necklace() {
   await necklace_homePage();
   await doTask();
   await necklace_homePage();
   await receiveBubbles();
   await sign();
   await necklace_homePage();
+  // await necklace_exchangeGift(10);//自动兑换多少钱的无门槛红包，1000代表1元
   await showMsg();
 }
 function showMsg() {
-  return new Promise(resolve => {
-    $.msg($.name, '', `京东账号 ${$.index} ${$.nickName}\n当前${$.name}${$.totalScore}个`);
+  return new Promise(async resolve => {
+    let nowTimes = new Date(new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000);
+    if (nowTimes.getHours() >= 20) {
+      $.msg($.name, '', `京东账号${$.index} ${$.nickName}\n当前${$.name}：${$.totalScore}个\n可兑换无门槛红包：${$.totalScore / 1000}元\n点击弹窗即可去兑换(注：此红包具有时效性)`, { 'open-url': openUrl});
+    }
+    // 云端大于10元无门槛红包时进行通知推送
+    if ($.isNode() && $.totalScore >= 10000 && nowTimes.getHours() >= 20) await notify.sendNotify(`${$.name} - 京东账号${$.index} - ${$.nickName}`, `京东账号${$.index} ${$.nickName}\n当前${$.name}：${$.totalScore}个\n可兑换无门槛红包：${$.totalScore / 1000}元\n点击链接即可去兑换(注：此红包具有时效性)\n↓↓↓ \n\n ${openUrl} \n\n ↑↑↑`, { url: openUrl })
     resolve()
   })
 }
@@ -103,6 +116,8 @@ async function doTask() {
       console.log(`${item.taskName}任务已做完,奖励未领取`);
     } else if (item.taskStage === 3) {
       console.log(`${item.taskName}奖励已领取`);
+    } else if (item.taskStage === 1) {
+      console.log(`${item.taskName}任务未完成\n`);
     }
   }
 }
@@ -131,7 +146,6 @@ function necklace_sign() {
           console.log(`${JSON.stringify(err)}`)
           console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
-          console.log(data);
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.rtn_code === 0) {
@@ -139,6 +153,40 @@ function necklace_sign() {
                 console.log(`签到成功，时间：${new Date(new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000).toLocaleString()}`)
                 // $.taskConfigVos = data.data.result.taskConfigVos;
                 // $.exchangeGiftConfigs = data.data.result.exchangeGiftConfigs;
+              }
+            }
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve(data);
+      }
+    })
+  })
+}
+//兑换无门槛红包
+function necklace_exchangeGift(scoreNums) {
+  return new Promise(resolve => {
+    const body = {
+      scoreNums,
+      "giftConfigId": 31,
+      currentDate: $.lastRequestTime.replace(/:/g, "%3A"),
+    }
+    $.post(taskPostUrl("necklace_exchangeGift", body), async (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`${$.name} API请求失败，请检查网路重试`)
+        } else {
+          if (safeGet(data)) {
+            data = JSON.parse(data);
+            if (data.rtn_code === 0) {
+              if (data.data.biz_code === 0) {
+                const { result } = data.data;
+                message += `${result.redpacketTitle}：${result.redpacketAmount}元兑换成功\n`;
+                message += `红包有效期：${new Date(result.endTime + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000).toLocaleString('zh', {hour12: false})}`;
+                console.log(message)
               }
             }
           }
@@ -164,7 +212,6 @@ function necklace_chargeScores(bubleId) {
           console.log(`${JSON.stringify(err)}`)
           console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
-          console.log(data);
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.rtn_code === 0) {
@@ -195,7 +242,6 @@ function necklace_startTask(taskId) {
           console.log(`${JSON.stringify(err)}`)
           console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
-          console.log(data);
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.rtn_code === 0) {
@@ -303,6 +349,17 @@ function safeGet(data) {
     console.log(e);
     console.log(`京东服务器访问数据为空，请检查自身设备网络情况`);
     return false;
+  }
+}
+function jsonParse(str) {
+  if (typeof str == "string") {
+    try {
+      return JSON.parse(str);
+    } catch (e) {
+      console.log(e);
+      $.msg($.name, '', '请勿随意在BoxJs输入框修改内容\n建议通过脚本去获取cookie')
+      return [];
+    }
   }
 }
 // prettier-ignore
