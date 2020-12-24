@@ -39,6 +39,7 @@ jobs:
           node jd_jdzz.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
+          JDZZ_SHARECODES: ${{ secrets.JDZZ_SHARECODES }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
           JOY_FEED_COUNT: ${{ secrets.JOY_FEED_COUNT }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
