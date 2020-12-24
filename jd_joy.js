@@ -1,13 +1,13 @@
 /*
- jd宠汪汪 搬的https://github.com/uniqueque/QuantumultX/blob/4c1572d93d4d4f883f483f907120a75d925a693e/Script/jd_joy.js
- 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
- IOS用户支持京东双账号,NodeJs用户支持N个京东账号
- 更新时间：2020-12-24
- 建议先凌晨0点运行jd_joy.js脚本获取狗粮后，再运行此脚本(jd_joy_steal.js)可偷好友积分，6点运行可偷好友狗粮
- feedCount:自定义 每次喂养数量; 等级只和喂养次数有关，与数量无关
- 推荐每次投喂10个，积累狗粮，然后去玩聚宝盆赌
- Combine from Zero-S1/JD_tools(https://github.com/Zero-S1/JD_tools)
- */
+jd宠汪汪 搬的https://github.com/uniqueque/QuantumultX/blob/4c1572d93d4d4f883f483f907120a75d925a693e/Script/jd_joy.js
+脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
+IOS用户支持京东双账号,NodeJs用户支持N个京东账号
+更新时间：2020-12-24
+建议先凌晨0点运行jd_joy.js脚本获取狗粮后，再运行此脚本(jd_joy_steal.js)可偷好友积分，6点运行可偷好友狗粮
+feedCount:自定义 每次喂养数量; 等级只和喂养次数有关，与数量无关
+推荐每次投喂10个，积累狗粮，然后去玩聚宝盆赌
+Combine from Zero-S1/JD_tools(https://github.com/Zero-S1/JD_tools)
+*/
 // quantumultx
 // [task_local]
 // #京东宠汪汪
@@ -77,12 +77,12 @@ const weAppUrl = 'https://draw.jdfcloud.com//pet';
     }
   }
 })()
-.catch((e) => {
-  $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-})
-.finally(() => {
-  $.done();
-})
+    .catch((e) => {
+      $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+    })
+    .finally(() => {
+      $.done();
+    })
 async function jdJoy() {
   await getPetTaskConfig();
   if ($.getPetTaskConfigRes.success) {
@@ -109,21 +109,21 @@ async function jdJoy() {
 }
 //逛商品得100积分奖励任务
 async function deskGoodsTask() {
-  const deskGoodsRes = await getDeskGoodDetails();
-  if (deskGoodsRes && deskGoodsRes.success) {
-    if (deskGoodsRes.data && deskGoodsRes.data.deskGoods) {
-      const { deskGoods, taskChance, followCount = 0 } = deskGoodsRes.data;
-      console.log(`浏览货柜商品 ${followCount ? followCount : 0}/${taskChance}`);
-      if (taskChance === followCount) return
-      for (let item of deskGoods) {
-        if (!item['status'] && item['sku']) {
-          await followScan(item['sku'])
-        }
-      }
-    } else {
-      console.log(`限时商品货架已下架`);
-    }
-  }
+ const deskGoodsRes = await getDeskGoodDetails();
+ if (deskGoodsRes && deskGoodsRes.success) {
+   if (deskGoodsRes.data && deskGoodsRes.data.deskGoods) {
+     const { deskGoods, taskChance, followCount = 0 } = deskGoodsRes.data;
+     console.log(`浏览货柜商品 ${followCount ? followCount : 0}/${taskChance}`);
+     if (taskChance === followCount) return
+     for (let item of deskGoods) {
+       if (!item['status'] && item['sku']) {
+         await followScan(item['sku'])
+       }
+     }
+   } else {
+     console.log(`限时商品货架已下架`);
+   }
+ }
 }
 //参加双人赛跑
 async function joinTwoPeopleRun() {
@@ -484,7 +484,7 @@ function enterRoom() {
           console.log('\n京东宠汪汪: API查询请求失败 ‼️‼️')
         } else {
           // console.log('JSON.parse(data)', JSON.parse(data))
-
+         
           $.roomData = JSON.parse(data);
 
           console.log(`现有狗粮: ${$.roomData.data.petFood}\n`)

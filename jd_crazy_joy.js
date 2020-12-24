@@ -1,19 +1,26 @@
 /*
- crazyJoy任务
- 每天运行一次即可
- 已支持IOS双京东账号,Node.js支持N个京东账号
- 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
- ============Quantumultx===============
- [task_local]
- #crazyJoy任务
- 10 7 * * * https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_crazy_joy.js, tag=crazyJoy任务, enabled=true
- ================Loon==============
- [Script]
- cron "10 7 * * *" script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_crazy_joy.js,tag=crazyJoy任务
- ===============Surge=================
- crazyJoy任务 = type=cron,cronexp="10 * * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_crazy_joy.js
- ============小火箭=========
- crazyJoy任务 = type=cron,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_crazy_joy.js, cronexpr="10 * * * *", timeout=200, enable=true
+crazyJoy任务
+
+每天运行一次即可
+
+
+已支持IOS双京东账号,Node.js支持N个京东账号
+脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
+============Quantumultx===============
+[task_local]
+#crazyJoy任务
+10 7 * * * https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_crazy_joy.js, tag=crazyJoy任务, enabled=true
+
+================Loon==============
+[Script]
+cron "10 7 * * *" script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_crazy_joy.js,tag=crazyJoy任务
+
+===============Surge=================
+crazyJoy任务 = type=cron,cronexp="10 * * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_crazy_joy.js
+
+============小火箭=========
+crazyJoy任务 = type=cron,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_crazy_joy.js, cronexpr="10 * * * *", timeout=200, enable=true
+
  */
 
 
@@ -105,7 +112,7 @@ if ($.isNode()) {
   function d(n) {
     var t, r = [];
     for (r[(n.length >> 2) - 1] = void 0,
-      t = 0; t < r.length; t += 1)
+           t = 0; t < r.length; t += 1)
       r[t] = 0;
     var e = 8 * n.length;
     for (t = 0; t < e; t += 8)
@@ -120,8 +127,8 @@ if ($.isNode()) {
   function l(n, t) {
     var r, e, o = d(n), u = [], c = [];
     for (u[15] = c[15] = void 0,
-    o.length > 16 && (o = i(o, 8 * n.length)),
-      r = 0; r < 16; r += 1)
+         o.length > 16 && (o = i(o, 8 * n.length)),
+           r = 0; r < 16; r += 1)
       u[r] = 909522486 ^ o[r],
         c[r] = 1549556828 ^ o[r];
     return e = i(u.concat(d(t)), 512 + 8 * t.length),
@@ -239,12 +246,12 @@ if ($.isNode()) {
     }
   }
 })()
-.catch((e) => {
-  $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-})
-.finally(() => {
-  $.done();
-})
+  .catch((e) => {
+    $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+  })
+  .finally(() => {
+    $.done();
+  })
 
 async function jdCrazyJoy() {
   $.coin = 0
