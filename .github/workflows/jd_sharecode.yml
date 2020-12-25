@@ -20,7 +20,7 @@ jobs:
           git clone https://github.com/JackEasons/jd_scripts.git ~/jd_scripts
       - name: 提交互助码
         run: |
-          cd ~/Actions/.github
+          cd ~/jd_scripts/.github
           chmod +x jd_sharecodes.sh
           ./jd_sharecodes.sh
         env:
