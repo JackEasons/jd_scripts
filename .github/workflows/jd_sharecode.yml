@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone https://github.com/lifeishard4me/Actions.git ~/Actions
+          git clone https://github.com/JackEasons/jd_scripts.git ~/jd_scripts
       - name: 提交互助码
         run: |
           cd ~/Actions/.github
@@ -32,3 +32,4 @@ jobs:
           JXFACTORY_SHARECODES: ${{ secrets.JXFACTORY_SHARECODES }}
           DREAM_FACTORY_SHARE_CODES: ${{ secrets.DREAM_FACTORY_SHARE_CODES }}
           JDZZ_INVITECODES: ${{ secrets.JDZZ_INVITECODES }}
+          JDJOY_SHARECODES: ${{ secrets.JDJOY_SHARECODES }}

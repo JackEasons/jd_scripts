@@ -22,7 +22,7 @@ jobs:
       - name: '运行jd_crazy'
         run: |
           pip3 install requests
-          curl https://raw.githubusercontent.com/x1iu/jd_scripts/master/jd_crazy.py -o jd_crazy.py
+          curl https://raw.githubusercontent.com/JackEasons/jd_scripts/main/jd_crazy.py -o jd_crazy.py
           python3 jd_crazy.py
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
