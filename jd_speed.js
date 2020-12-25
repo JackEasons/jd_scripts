@@ -1,12 +1,12 @@
 /*
-京东天天加速链接：https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_speed.js
-更新时间：2020-12-25
-支持京东双账号
-脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
-每天4京豆，再小的苍蝇也是肉
-从 https://github.com/Zero-S1/JD_tools/blob/master/JD_speed.py 改写来的
-建议3小时运行一次，打卡时间间隔是6小时
-*/
+ 京东天天加速链接：https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_speed.js
+ 更新时间：2020-12-25
+ 支持京东双账号
+ 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
+ 每天4京豆，再小的苍蝇也是肉
+ 从 https://github.com/Zero-S1/JD_tools/blob/master/JD_speed.py 改写来的
+ 建议3小时运行一次，打卡时间间隔是6小时
+ */
 // quantumultx
 // [task_local]
 // #天天加速
@@ -71,12 +71,12 @@ const JD_API_HOST = 'https://api.m.jd.com/'
     }
   }
 })()
-    .catch((e) => {
-      $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-    })
-    .finally(() => {
-      $.done();
-    })
+.catch((e) => {
+  $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+})
+.finally(() => {
+  $.done();
+})
 function showMsg() {
   jdNotify = $.getdata('jdSpeedNotify') ? $.getdata('jdSpeedNotify') : jdNotify;
   if (!jdNotify || jdNotify === 'false') {
@@ -512,7 +512,7 @@ function getMemBerList() {
                 }
                 if ($.getRewardBeans > 0) {
                   $.msg(`${$.name}`, '', `京东账号${$.index}  ${$.nickName}\n虫洞任务：获得${$.getRewardBeans}京豆`);
-                  await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName}`, `京东账号${$.index}  ${$.nickName}\n虫洞任务：获得${$.getRewardBeans}京豆`)
+                  if ($.isNode()) await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName}`, `京东账号${$.index}  ${$.nickName}\n虫洞任务：获得${$.getRewardBeans}京豆`)
                 }
               } else {
                 console.log(`暂无可领取的虫洞京豆奖励`)
