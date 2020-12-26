@@ -1,24 +1,21 @@
 /*
-直播红包雨
-每天0,9,11,13,15,17,19,20,21,23可领，每日上限未知
-活动时间：2020-12-14 到 2020-12-31
-更新地址：https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_live_redrain.js
-已支持IOS双京东账号, Node.js支持N个京东账号
-脚本兼容: QuantumultX, Surge, Loon, 小火箭，JSBox, Node.js
-============Quantumultx===============
-[task_local]
-#直播红包雨
-0 0,9,11,13,15,17,19,20,21,23 * * * https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_live_redrain.js, tag=直播红包雨, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_redPacket.png, enabled=true
-
-================Loon==============
-[Script]
-cron "0 0,9,11,13,15,17,19,20,21,23 * * *" script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_live_redrain.js, tag=直播红包雨
-
-===============Surge=================
-直播红包雨 = type=cron,cronexp="0 0,9,11,13,15,17,19,20,21,23 * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_live_redrain.js
-
-============小火箭=========
-直播红包雨 = type=cron,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_live_redrain.js, cronexpr="0 0,9,11,13,15,17,19,20,21,23 * * *", timeout=200, enable=true
+ 直播红包雨
+ 每天0,9,11,13,15,17,19,20,21,23可领，每日上限未知
+ 活动时间：2020-12-14 到 2020-12-31
+ 更新地址：https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_live_redrain.js
+ 已支持IOS双京东账号, Node.js支持N个京东账号
+ 脚本兼容: QuantumultX, Surge, Loon, 小火箭，JSBox, Node.js
+ ============Quantumultx===============
+ [task_local]
+ #直播红包雨
+ 0 0,9,11,13,15,17,19,20,21,23 * * * https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_live_redrain.js, tag=直播红包雨, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_redPacket.png, enabled=true
+ ================Loon==============
+ [Script]
+ cron "0 0,9,11,13,15,17,19,20,21,23 * * *" script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_live_redrain.js, tag=直播红包雨
+ ===============Surge=================
+ 直播红包雨 = type=cron,cronexp="0 0,9,11,13,15,17,19,20,21,23 * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_live_redrain.js
+ ============小火箭=========
+ 直播红包雨 = type=cron,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_live_redrain.js, cronexpr="0 0,9,11,13,15,17,19,20,21,23 * * *", timeout=200, enable=true
  */
 const $ = new Env('直播红包雨');
 let ids = {
@@ -80,12 +77,12 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
   }
   $.log(`=====远程红包雨信息=====`)
   await getRedRain();
-	if(!$.activityId) return
+  if(!$.activityId) return
   let nowTs = new Date().getTime()
   if (!($.st <= nowTs && nowTs < $.ed)) {
     $.log(`远程红包雨配置获取错误，从本地读取配置`)
     $.log(`\n`)
-    let hour = new Date().getUTCHours() + 8
+    let hour = (new Date().getUTCHours() + 8) %24
     if (ids[hour]){
       $.activityId = ids[hour]
       $.log(`本地红包雨配置获取成功`)
@@ -103,7 +100,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
       $.index = i + 1;
       $.isLogin = true;
       $.nickName = '';
-      message = `【${new Date($.st).getHours()}点${$.name}】`
+      message = `【${new Date().getUTCHours()+8}点${$.name}】`
       await TotalBean();
       console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
       if (!$.isLogin) {
@@ -119,12 +116,12 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
     }
   }
 })()
-  .catch((e) => {
-    $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-  })
-  .finally(() => {
-    $.done();
-  })
+.catch((e) => {
+  $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+})
+.finally(() => {
+  $.done();
+})
 
 async function showMsg() {
   if ($.isNode() && !jdNotify) {
@@ -140,7 +137,7 @@ function getRedRain() {
   return new Promise(resolve => {
     $.get({
       url: "http://ql4kk90rw.hb-bkt.clouddn.com/jd_live_redRain.json?" + Date.now(),
-      }, (err, resp, data) => {
+    }, (err, resp, data) => {
       try {
         if (err) {
           console.log(`1111${JSON.stringify(err)}`)
@@ -185,6 +182,7 @@ function receiveRedRain() {
               message += `领取失败，已领过\n`;
             } else {
               console.log(`异常：${JSON.stringify(data)}`)
+              message += `暂无红包雨\n`;
             }
           }
         }
