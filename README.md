@@ -26,42 +26,42 @@
 
 | 活动时长 | 名称                         | 脚本                                                                                                   |
 | ---- | ------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| 长期 | 疯狂的joy             | [jd_crazy_joy.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_crazy_joy.js)       |
-| 长期 | 京豆变动通知             | [jd_bean_change.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_bean_change.js)       |
-| 长期 | 京东多合一签到          | [jd_bean_sign.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_bean_sign.js)           |
-| 长期 | 东东超市兑换奖品       | [jd_blueCoin.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_blueCoin.js)             |
-| 长期 | 摇京豆                      | [jd_club_lottery.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_club_lottery.js)     |
-| 长期 | 东东农场                   | [jd_fruit.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_fruit.js)                   |
-| 长期 | 宠汪汪                      | [jd_joy.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_joy.js)                       |
-| 长期 | 宠汪汪单独喂食          | [jd_joy_feedPets.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_joy_feedPets.js)     |
-| 长期 | 宠汪汪强制为好友助力（iOS端专用） | [jd_joy_help.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_joy_help.js)             |
-| 长期 | 宠汪汪聚宝盆辅助脚本(iOS端专用) | [jd_petTreasureBox.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_petTreasureBox.js) |
-| 长期 | 宠汪汪兑换奖品          | [jd_joy_reward.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_joy_reward.js)         |
-| 长期 | 宠汪汪赛跑助力          | [jd_joy_run.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_joy_run.js)               |
-| 长期 | 宠汪汪偷好友狗粮与积分 | [jd_joy_steal.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_joy_steal.js)           |
-| 长期 | 摇钱树                      | [jd_moneyTree.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_moneyTree.js)           |
-| 长期 | 东东萌宠                   | [jd_pet.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_pet.js)                       |
-| 长期 | 金融养猪                   | [jd_pigPet.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_pigPet.js)                 |
-| 长期 | 天天提鹅                   | [jd_daily_egg.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_daily_egg.js)                 |
-| 长期 | 种豆得豆                   | [jd_plantBean.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_plantBean.js)           |
-| 长期 | 全民开红包                | [jd_redPacket.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_redPacket.js)           |
-| 长期 | 进店领豆                   | [jd_shop.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_shop.js)                     |
-| 长期 | 天天加速                   | [jd_speed.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_speed.js)                   |
-| 长期 | 京东快递                   | [jd_kd.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_kd.js)       |
-| 长期 | 东东超市                   | [jd_superMarket.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_superMarket.js)       |
-| 长期 | 京喜工厂                   | [jd_dreamFactory.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_dreamFactory.js)       |
-| 长期 | 东东工厂                   | [jd_jdfactory.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_jdfactory.js)       |
-| 长期 | 东东小窝                   | [jd_small_home.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_small_home.js)       |
-| 长期 | 点点券                   | [jd_necklace.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_necklace.js)       |
-| 长期 | 十元街                   | [jd_syj.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_syj.js)       |
-| 长期 | 京东代属                   | [jd_ds.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_ds.js)       |
-| 长期 | 取关京东店铺和商品    | [jd_unsubscribe.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_unsubscribe.js)       |
-| 短期 | 星推官                      | [jd_xtg.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_xtg.js)                       |
-| 短期 | 手机狂欢城                | [jd_818.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_818.js)                       |
+| 长期 | 疯狂的joy             | [jd_crazy_joy.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_crazy_joy.js)       |
+| 长期 | 京豆变动通知             | [jd_bean_change.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_bean_change.js)       |
+| 长期 | 京东多合一签到          | [jd_bean_sign.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_bean_sign.js)           |
+| 长期 | 东东超市兑换奖品       | [jd_blueCoin.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_blueCoin.js)             |
+| 长期 | 摇京豆                      | [jd_club_lottery.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_club_lottery.js)     |
+| 长期 | 东东农场                   | [jd_fruit.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_fruit.js)                   |
+| 长期 | 宠汪汪                      | [jd_joy.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_joy.js)                       |
+| 长期 | 宠汪汪单独喂食          | [jd_joy_feedPets.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_joy_feedPets.js)     |
+| 长期 | 宠汪汪强制为好友助力（iOS端专用） | [jd_joy_help.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_joy_help.js)             |
+| 长期 | 宠汪汪聚宝盆辅助脚本(iOS端专用) | [jd_petTreasureBox.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_petTreasureBox.js) |
+| 长期 | 宠汪汪兑换奖品          | [jd_joy_reward.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_joy_reward.js)         |
+| 长期 | 宠汪汪赛跑助力          | [jd_joy_run.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_joy_run.js)               |
+| 长期 | 宠汪汪偷好友狗粮与积分 | [jd_joy_steal.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_joy_steal.js)           |
+| 长期 | 摇钱树                      | [jd_moneyTree.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_moneyTree.js)           |
+| 长期 | 东东萌宠                   | [jd_pet.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_pet.js)                       |
+| 长期 | 金融养猪                   | [jd_pigPet.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_pigPet.js)                 |
+| 长期 | 天天提鹅                   | [jd_daily_egg.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_daily_egg.js)                 |
+| 长期 | 种豆得豆                   | [jd_plantBean.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_plantBean.js)           |
+| 长期 | 全民开红包                | [jd_redPacket.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_redPacket.js)           |
+| 长期 | 进店领豆                   | [jd_shop.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_shop.js)                     |
+| 长期 | 天天加速                   | [jd_speed.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_speed.js)                   |
+| 长期 | 京东快递                   | [jd_kd.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_kd.js)       |
+| 长期 | 东东超市                   | [jd_superMarket.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_superMarket.js)       |
+| 长期 | 京喜工厂                   | [jd_dreamFactory.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_dreamFactory.js)       |
+| 长期 | 东东工厂                   | [jd_jdfactory.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_jdfactory.js)       |
+| 长期 | 东东小窝                   | [jd_small_home.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_small_home.js)       |
+| 长期 | 点点券                   | [jd_necklace.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_necklace.js)       |
+| 长期 | 十元街                   | [jd_syj.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_syj.js)       |
+| 长期 | 京东代属                   | [jd_ds.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_ds.js)       |
+| 长期 | 取关京东店铺和商品    | [jd_unsubscribe.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_unsubscribe.js)       |
+| 短期 | 星推官                      | [jd_xtg.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_xtg.js)                       |
+| 短期 | 手机狂欢城                | [jd_818.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_818.js)                       |
 
 搬运脚本
-1.  【[@yangtingxiao](https://github.com/yangtingxiao)】京东抽奖机([jd_lotteryMachine.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_lotteryMachine.js))
-2.  【[@yangtingxiao](https://github.com/yangtingxiao)】京东排行榜([jd_rankingList.js](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_rankingList.js))
+1.  【[@yangtingxiao](https://github.com/yangtingxiao)】京东抽奖机([jd_lotteryMachine.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_lotteryMachine.js))
+2.  【[@yangtingxiao](https://github.com/yangtingxiao)】京东排行榜([jd_rankingList.js](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/jd_rankingList.js))
 
 **脚本兼容: [QuantumultX](https://apps.apple.com/us/app/quantumult-x/id1443988620), [Surge](https://apps.apple.com/us/app/surge-4/id1442620678), [Loon](https://apps.apple.com/us/app/loon/id1373567447), 小火箭, JSBox, Node.js**
 
@@ -90,16 +90,16 @@
  
 ### 方法三：Docker（NAS或VPS用户）
 
- - 可以精确控制任务运行时间，有二种办法：[docker办法一](https://github.com/lxk0301/jd_scripts/tree/master/docker)、[docker办法二（和本地安装Node.js类似）](https://github.com/EvineDeng/jd-base)
- - [环境变量集合](https://github.com/lxk0301/jd_scripts/blob/master/githubAction.md)
+ - 可以精确控制任务运行时间，有二种办法：[docker办法一](https://github.com/JackEasons/jd_scripts/tree/master/docker)、[docker办法二（和本地安装Node.js类似）](https://github.com/EvineDeng/jd-base)
+ - [环境变量集合](https://github.com/JackEasons/jd_scripts/blob/master/githubAction.md)
  
 #### 注：以上三种运行机制都是Node.js，故您需仔细阅读下面几点
 
 
-  - 如果使用方法一与方法二，需自行提供京东cookie填写到 [jdCookie.js](https://github.com/lxk0301/jd_scripts/blob/master/jdCookie.js) 里面
+  - 如果使用方法一与方法二，需自行提供京东cookie填写到 [jdCookie.js](https://github.com/JackEasons/jd_scripts/blob/master/jdCookie.js) 里面
 
    
-  - 获取京东cookie教程可参考 [浏览器获取京东cookie教程](https://github.com/lxk0301/jd_scripts/blob/master/backUp/GetJdCookie.md) , [插件获取京东cookie教程](https://github.com/lxk0301/jd_scripts/blob/master/backUp/GetJdCookie2.md)
+  - 获取京东cookie教程可参考 [浏览器获取京东cookie教程](https://github.com/JackEasons/jd_scripts/blob/master/backUp/GetJdCookie.md) , [插件获取京东cookie教程](https://github.com/lxk0301/jd_scripts/blob/master/backUp/GetJdCookie2.md)
 
   - 方法三Docker安装Cookie请见各自的说明。
 
@@ -111,7 +111,7 @@
 
 ##### BoxJs简单说明可看作者[BoxJs仓库地址](https://github.com/chavyleung/scripts/)
 
-使用box可以实现远程订阅助力好友(需订阅此 [链接](https://raw.githubusercontent.com/lxk0301/jd_scripts/master/lxk0301.boxjs.json))
+使用box可以实现远程订阅助力好友(需订阅此 [链接](https://raw.githubusercontent.com/JackEasons/jd_scripts/master/lxk0301.boxjs.json))
 
 - [BoxJs使用教程](https://chavyleung.gitbook.io/boxjs/)
 
@@ -125,20 +125,3 @@
  2、所有脚本的cookie都可以备份，方便你迁移到其他支持box的软件。
 
  3、box可以支持多账号
-
-### 赞赏码(开发维护不易,请赏杯茶水费)
-<div align=center><img width="250" height="250" src="https://raw.githubusercontent.com/lxk0301/jd_scripts/master/icon/thanks.jpg"/></div>
-
-### 特别感谢(排名不分先后)：
-* [@NobyDa](https://github.com/NobyDa)
-
-* [@chavyleung](https://github.com/chavyleung)
-
-* [@liuxiaoyucc](https://github.com/liuxiaoyucc)
-
-* [@Zero-S1](https://github.com/Zero-S1)
-
-* [@uniqueque](https://github.com/uniqueque)
-
-
-* [@nzw9314](https://github.com/nzw9314)
