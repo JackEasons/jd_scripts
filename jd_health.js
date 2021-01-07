@@ -1,23 +1,20 @@
 /*
-健康抽奖机 ，活动于2020-12-31日结束
-脚本会给内置的码进行助力
-活动地址：https://h5.m.jd.com/babelDiy/Zeus/3HBUP66Gnx92mRt2bXbT9VamYWSx/index.html
-已支持IOS双京东账号,Node.js支持N个京东账号
-脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
-============Quantumultx===============
-[task_local]
-#健康抽奖机
-10 0 * * * https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_health.js, tag=健康抽奖机, enabled=true
-
-================Loon==============
-[Script]
-cron "10 0 * * *" script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_health.js,tag=健康抽奖机
-
-===============Surge=================
-健康抽奖机 = type=cron,cronexp="10 0 * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_health.js
-
-============小火箭=========
-健康抽奖机 = type=cron,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_health.js, cronexpr="10 0 * * *", timeout=200, enable=true
+ 健康抽奖机 ，活动于2020-12-31日结束
+ 脚本会给内置的码进行助力
+ 活动地址：https://h5.m.jd.com/babelDiy/Zeus/3HBUP66Gnx92mRt2bXbT9VamYWSx/index.html
+ 已支持IOS双京东账号,Node.js支持N个京东账号
+ 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
+ ============Quantumultx===============
+ [task_local]
+ #健康抽奖机
+ 10 0 * * * https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_health.js, tag=健康抽奖机, enabled=true
+ ================Loon==============
+ [Script]
+ cron "10 0 * * *" script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_health.js,tag=健康抽奖机
+ ===============Surge=================
+ 健康抽奖机 = type=cron,cronexp="10 0 * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_health.js
+ ============小火箭=========
+ 健康抽奖机 = type=cron,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_health.js, cronexpr="10 0 * * *", timeout=200, enable=true
  */
 const $ = new Env('健康抽奖机');
 
@@ -73,12 +70,12 @@ const inviteCodes = [`P04z54XCjVUnoaW5nJcXCCyoR8C6i9QR16e`, 'P04z54XCjVUnoaW5m9c
     }
   }
 })()
-    .catch((e) => {
-      $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-    })
-    .finally(() => {
-      $.done();
-    })
+.catch((e) => {
+  $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+})
+.finally(() => {
+  $.done();
+})
 async function jdHealth() {
   await helpFriends();
   await jdhealth_getTaskDetail();
@@ -172,13 +169,13 @@ function jdhealth_collectScore(taskToken, taskId, itemId, actionType=0) {
               message += `任务领取成功\n`
             }
             else if (data.data.bizCode === 0) {
-                if(data.data.result.taskType===6){
-                  console.log(`助力好友：${data.data.result.itemId}成功！`)
-                  message += `助力好友：${data.data.result.itemId}成功！\n`
-                }else {
-                  console.log(`任务完成成功`);
-                  message += `任务完成成功！\n`
-                }
+              if(data.data.result.taskType===6){
+                console.log(`助力好友：${data.data.result.itemId}成功！`)
+                message += `助力好友：${data.data.result.itemId}成功！\n`
+              }else {
+                console.log(`任务完成成功`);
+                message += `任务完成成功！\n`
+              }
 
             } else {
               console.log(`${data.data.bizMsg}`)
