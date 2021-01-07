@@ -1,5 +1,5 @@
 
-name: 打印互助码&互助码自动上车
+name: 互助码自动上车
 
 on:
   push:
@@ -17,21 +17,13 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone https://github.com/lifeishard4me/Actions.git ~/Actions
+          git clone https://github.com/JackEasons/jd_scripts.git ~/jd_scripts
       - name: 提交互助码
         run: |
-          cd ~/Actions/.github
+          cd ~/jd_scripts/.github
           chmod +x jd_sharecodes.sh
           ./jd_sharecodes.sh
-          git clone -b master https://github.com/lxk0301/jd_scripts.git ~/scripts
-          cd  ~/scripts
-          npm install
-          node jd_get_share_code.js
         env:
-          JD_DEBUG: ${{ secrets.JD_DEBUG }}
-          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          JD_COOKIE: ${{ secrets.JD_COOKIE }}
           PETSHARECODES: ${{ secrets.PETSHARECODES }}
           FRUITSHARECODES: ${{ secrets.FRUITSHARECODES }}
           PLANT_BEAN_SHARECODES: ${{ secrets.PLANT_BEAN_SHARECODES }}
